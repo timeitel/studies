@@ -5,7 +5,12 @@ import * as React from 'react'
 
 function UsernameForm({onSubmitUsername}) {
   // 🐨 add a submit event handler here (`handleSubmit`).
+  const [username, setUsername] = React.useState('')
   const inputRef = React.useRef(null)
+  const handleChange = ({target: {value}}) => {
+    setUsername(value.toLowerCase())
+  }
+
   const onSubmit = e => {
     e.preventDefault()
     onSubmitUsername(inputRef.current.value)
@@ -27,8 +32,15 @@ function UsernameForm({onSubmitUsername}) {
   return (
     <form onSubmit={onSubmit}>
       <div>
+        <br />
         <label htmlFor="username">Username:</label>
-        <input ref={inputRef} id="username" type="text" />
+        <input
+          ref={inputRef}
+          onChange={handleChange}
+          value={username}
+          id="username"
+          type="text"
+        />
       </div>
       <button type="submit">Submit</button>
     </form>
