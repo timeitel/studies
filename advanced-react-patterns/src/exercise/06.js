@@ -41,7 +41,7 @@ function useToggle({
   const [state, dispatch] = React.useReducer(reducer, initialState)
   // 🐨 determine whether on is controlled and assign that to `onIsControlled`
   // 💰 `controlledOn != null`
-  const onIsControlled = !!controlledOn
+  const onIsControlled = controlledOn != null
 
   // 🐨 Replace the next line with assigning `on` to `controlledOn` if
   // `onIsControlled`, otherwise, it should be `state.on`.
