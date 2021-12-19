@@ -2,9 +2,8 @@
 // http://localhost:3000/counter
 
 import * as React from 'react'
-import ReactDOM from 'react-dom'
-// 🐨 import the `render` and `fireEvent` utilities from '@testing-library/react'
 import Counter from '../../components/counter'
+import {render} from '@testing-library/react'
 
 // 💣 remove this. React Testing Library does this automatically!
 beforeEach(() => {
