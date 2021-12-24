@@ -24,6 +24,10 @@ function PokemonInfo({pokemonResource}) {
   )
 }
 
+function createPokemonResource(pokemonName) {
+  return createResource(fetchPokemon(pokemonName))
+}
+
 function App() {
   const [pokemonName, setPokemonName] = React.useState('')
   const [pokemonResource, setPokemonResource] = React.useState(null)
@@ -37,7 +41,7 @@ function App() {
       return
     }
 
-    setPokemonResource(createResource(fetchPokemon(pokemonName)))
+    setPokemonResource(createPokemonResource(pokemonName))
   }, [pokemonName])
 
   function handleSubmit(newPokemonName) {
