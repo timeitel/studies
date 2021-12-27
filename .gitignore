@@ -4,3 +4,9 @@ coverage
 build
 .idea/
 .eslintcache
+
+# .NET
+**/bin/
+obj/
+/node_modules
+/wwwroot/node_modules
