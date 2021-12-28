@@ -14,7 +14,7 @@ namespace Catalog.Repositories
         void DeleteItem(Guid item);
     }
 
-    public class ItemsRepository : IItemsRepository
+    public class InMemItemsRepository : IItemsRepository
     {
         private readonly List<Item> _items = new()
         {
