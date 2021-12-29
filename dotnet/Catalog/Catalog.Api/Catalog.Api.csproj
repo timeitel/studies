@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>5d15c346-6f47-48d3-a839-4f022f951afa</UserSecretsId>
+    <RootNamespace>Catalog</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

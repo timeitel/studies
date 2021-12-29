@@ -42,7 +42,7 @@ namespace Catalog
             services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
 
             services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Catalog", Version = "v1"}); });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Catalog.Api", Version = "v1"}); });
 
             services.AddHealthChecks()
                 .AddMongoDb(
@@ -59,7 +59,7 @@ namespace Catalog
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog.Api v1"));
 
                 app.UseHttpsRedirection();
             }
