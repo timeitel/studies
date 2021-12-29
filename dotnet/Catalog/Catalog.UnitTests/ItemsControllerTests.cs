@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Catalog.Api.Controllers;
 using Catalog.Api.Models;
 using Catalog.Api.Repositories;
+using Catalog.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -12,22 +12,36 @@ namespace Catalog.UnitTests
 {
     public class ItemsControllerTests
     {
+        private readonly Mock<IItemsRepository> _repositoryStub = new();
+        private readonly Mock<ILogger<ItemsController>> _loggerStub = new();
         [Fact]
         public async Task GetItemAsync_WithNonexistingItem_ReturnsNotFound()
         {
             // Arrange
-            var repositoryStub = new Mock<IItemsRepository>();
-            repositoryStub.Setup(repo => repo.GetItemAsync(It.IsAny<Guid>()))
+            _repositoryStub.Setup(repo => repo.GetItemAsync(It.IsAny<Guid>()))
             .ReturnsAsync((Item) null);
-
-            var loggerStub = new Mock<ILogger<ItemsController>>();
-            var controller = new ItemsController(repositoryStub.Object, loggerStub.Object);
+            var controller = new ItemsController(_repositoryStub.Object, _loggerStub.Object);
             
             // Act
             var result = await controller.GetItemAsync(Guid.NewGuid());
             
             // Assert
             Assert.IsType<NotFoundResult>(result.Result);
+        }
+        
+        [Fact]
+        public async Task GetItemAsync_WithExistingItem_ReturnsExpectedItem()
+        {
+            // Arrange
+            
+            // Act
+            
+            // Assert
+        }
+
+        private Item CreateRandomItem()
+        {
+            return null;
         }
     }
 }
