@@ -36,10 +36,16 @@ fn main() {
     let s2 = String::from("tac");
     let s3 = String::from("toe");
     let s = format!("{}-{}-{}", s1, s2, s3);
-    println!("{s}")
+    println!("{s}");
 
     // it don't work, can't index strings due to string b eing Vec of bytes, some unicode
     // characters take more than one byte of storage
     // let s1 = String::from("hello");
     // let h = s1[0];
+    for c in "Зд".chars() {
+        println!("{}", c);
+    }
+    for b in "Зд".bytes() {
+        println!("{}", b);
+    }
 }
