@@ -9,4 +9,11 @@ fn main() {
         Some(third) => println!("The third element is {}", third),
         None => println!("There is no third element."),
     }
+
+    let data = "initial contents".to_string();
+    println!("{:?}", data);
+
+    let mut s = String::from("foo");
+    s.push_str("bar");
+    println!("{s}");
 }
